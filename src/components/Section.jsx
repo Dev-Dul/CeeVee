@@ -1,34 +1,4 @@
 
-function Buttons({name}){
-    if(name === 'first'){
-        return(
-            <div className="buttons first">
-                <button>Next</button>
-            </div>
-        );
-    }
-
-    return (
-      <div className="buttons">
-        <button>Back</button>
-        <button>Next</button>
-      </div>
-    );
-}
-
-function Range({startYear}){
-    const sel = document.createElement("select");
-    const endYear = new Date().getFullYear();
-    for(let year = endYear; year >= startYear; year--){
-        let option = document.createElement("option"); 
-        option.value = year;
-        option.textContent = year;
-        sel.appendChild(option);
-    }
-
-    return sel;
-}
-
 
 
 function Skills(){

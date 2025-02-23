@@ -1,3 +1,17 @@
+
+function Range({ startYear }) {
+  const sel = document.createElement("select");
+  const endYear = new Date().getFullYear();
+  for (let year = endYear; year >= startYear; year--) {
+    let option = document.createElement("option");
+    option.value = year;
+    option.textContent = year;
+    sel.appendChild(option);
+  }
+
+  return sel;
+}
+
 function Block({ name, cert }) {
   return (
     <div className="ed">
@@ -38,3 +52,5 @@ function Block({ name, cert }) {
     </div>
   );
 }
+
+export default Block;
