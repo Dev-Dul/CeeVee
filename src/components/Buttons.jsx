@@ -1,8 +1,10 @@
-function Buttons({ name }) {
+
+
+function Buttons({ name, next }) {
   if (name === "first") {
     return (
-      <div className="buttons first">
-        <button>Next</button>
+      <div className="btns first">
+        <button onClick={next}>Next</button>
       </div>
     );
   }
@@ -10,7 +12,10 @@ function Buttons({ name }) {
   return (
     <div className="buttons">
       <button>Back</button>
-      <button>Next</button>
+      <button onClick={next}>Next</button>
     </div>
   );
 }
+
+
+export default Buttons;

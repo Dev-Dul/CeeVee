@@ -28,11 +28,22 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 h1 {
   font-size: 3.2em;
+  margin-bottom: 15px;
   line-height: 1.1;
+}
+
+h2{
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.buttons{
+  margin-top: 3rem;
 }
 
 button {

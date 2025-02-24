@@ -5,6 +5,22 @@
   text-align: center;
 }
 
+.container{
+  position: relative;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parent{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +55,26 @@
 
 .read-the-docs {
   color: #888;
+}
+
+section.home.active{
+  opacity: 1;
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  /* top: -3rem; */
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+section.home.inactive{
+  opacity: 0;
+  display: none;
 }

@@ -1,13 +1,16 @@
 
 function Range({ startYear }) {
+
   const sel = document.createElement("select");
   const endYear = new Date().getFullYear();
-  for (let year = endYear; year >= startYear; year--) {
+  for(let year = endYear; year >= startYear; year--) {
     let option = document.createElement("option");
     option.value = year;
     option.textContent = year;
     sel.appendChild(option);
   }
+
+  console.log(sel);
 
   return sel;
 }
@@ -46,8 +49,8 @@ function Block({ name, cert }) {
       </select>
       <label htmlFor="duration">Duration </label>
       <div className="dates">
-        <Range startYear={1900} />
-        <Range startYear={1900} />
+        {/* <Range startYear={1950} />
+        <Range startYear={1950} /> */}
       </div>
     </div>
   );
