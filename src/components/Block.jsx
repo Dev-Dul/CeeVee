@@ -1,4 +1,4 @@
-
+import '../styles/block.css';
 function Range({ startYear }) {
 
   const sel = document.createElement("select");
@@ -16,41 +16,66 @@ function Range({ startYear }) {
 }
 
 function Block({ name, cert }) {
+  console.log(name)
+  console.log(cert)
+  if(cert !== 'role'){
+    return (
+      <div className="ed">
+        <div className="inputBox">
+          <label htmlFor="school">{name}</label>
+          <input type="text" name="school" id="school" />
+        </div>
+        <div className="inputBox">
+          <label htmlFor="schools" className="bLabel">
+            Certification
+          </label>
+          <select name="schools" id="schools" className="bSelect">
+            <option value="Primary">First School Leaving Certificate</option>
+            <option value="Secondary">Second School Leaving Certificate</option>
+            <option value="Third">Third School Leaving Certificate</option>
+            <option value="f-deg">First Degree</option>
+            <option value="s-deg">Second Degree</option>
+          </select>
+        </div>
+        <div className="inputBox">
+            <label htmlFor="duration">Duration </label>
+            <div className="dates">
+              {/* <Range startYear={1950} />
+            <Range startYear={1950} /> */}
+            </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="ed">
-      <label htmlFor="school">
-        {name} <input type="text" name="school" id="school" />
-      </label>
-      <label htmlFor="role" className={cert === "role" ? "active" : "inactive"}>
-        Role:{" "}
-        <input
-          type="text"
-          name="role"
-          id="role"
-          className={cert === "role" ? "active" : "inactive"}
-        />
-      </label>
-      <label
-        htmlFor="schools"
-        className={cert !== "role" ? "active" : "inactive"}
-      >
-        {cert}{" "}
-      </label>
-      <select
-        name="schools"
-        id="schools"
-        className={cert !== "role" ? "active" : "inactive"}
-      >
-        <option value="Primary">First School Leaving Certificate</option>
-        <option value="Secondary">Second School Leaving Certificate</option>
-        <option value="Third">Third School Leaving Certificate</option>
-        <option value="f-deg">First Degree</option>
-        <option value="s-deg">Second Degree</option>
-      </select>
-      <label htmlFor="duration">Duration </label>
-      <div className="dates">
-        {/* <Range startYear={1950} />
+    <div className="xp">
+      <div className="inputBox">
+        <label htmlFor="org">{name}</label>
+        <input type="text" name="org" id="org" />
+      </div>
+      <div className="inputBox">
+        <label htmlFor="role" className="bLabel">
+          Role:
+        </label>
+        <input type="text" name="role" id="role" className="bInput" />
+      </div>
+      <div className="inputBox">
+        <label htmlFor="accomp">Any Notable Accomplishments?</label>
+        <textarea
+          name="accomp"
+          id="accomp"
+          cols="45"
+          rows="7"
+          className="bText"
+        ></textarea>
+      </div>
+      <div className="inputBox">
+        <label htmlFor="duration">Duration </label>
+        <div className="dates">
+          {/* <Range startYear={1950} />
         <Range startYear={1950} /> */}
+        </div>
       </div>
     </div>
   );

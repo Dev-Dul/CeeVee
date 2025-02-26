@@ -24,19 +24,19 @@ function Slide(props){
         return (
           <section className={`slide ${props.cnt === 1 ? 'active' : 'inactive'} `} >
             <h2>Personal Info</h2>
-            <label htmlFor="name">
+            <label htmlFor="name" className='sLabel'>
               <span>Name: </span>
               <input type="text" name="name" id="name" />
             </label>
-            <label htmlFor="position">
+            <label htmlFor="position" className='sLabel'>
               <span>Position: </span>
               <input type="text" name="position" id="position" />
             </label>
-            <label htmlFor="phone">
+            <label htmlFor="phone" className='sLabel'>
               <span>Phone: </span>
               <input type="text" name="phone" id="phone" />
             </label>
-            <label htmlFor="email">
+            <label htmlFor="email" className='sLabel'>
               <span>Email: </span>
               <input type="email" name="email" id="email" />
             </label>
@@ -55,13 +55,13 @@ function Slide(props){
         return (
           <section className={`slide ${props.cnt === 3 ? 'active' : 'inactive'} `} >
             <h2>Education</h2>
-            <Block name="School" cert="Certifications" />
-            <Block name="School" cert="Certifications" />
-            <Block name="School" cert="Certifications" />
+            <Block name="School" cert="school" />
+            <Block name="School" cert="school" />
+            <Block name="School" cert="school" />
             <button
               type="button"
               className="newBlock"
-              onClick={() => <Block name="School" cert="Certifications" />}
+              onClick={() => <Block name="School" cert="school" />}
             >Add School</button>
             <Buttons name='third' next={props.bttn} count={props.cnt} />
           </section>
@@ -69,7 +69,7 @@ function Slide(props){
     }else if(props.order === 'fourth'){
         return (
           <section className={`slide ${props.cnt === 4 ? 'active' : 'inactive'}`} >
-            <h2>Experince</h2>
+            <h2>Experience</h2>
             <Block name="Organization" cert="role" />
             <Block name="Organization" cert="role" />
             <Block name="Organization" cert="role" />
@@ -77,7 +77,7 @@ function Slide(props){
               type="button"
               className="newBlock"
               onClick={() => <Block name="Organization" cert="role" />}
-            >Add Expeience</button>
+            >Add Experience</button>
             <Buttons name='fourth' next={props.bttn} count={props.cnt} />
           </section>
         );

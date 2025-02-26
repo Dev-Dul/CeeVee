@@ -57,6 +57,12 @@
   color: #888;
 }
 
+/* section.home{
+  height: 400px;
+  width: 100%;
+  overflow: scroll;
+} */
+
 section.home.active{
   opacity: 1;
   display: block;

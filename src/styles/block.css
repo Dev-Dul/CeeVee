@@ -1,0 +1,43 @@
+.inputBox{
+    height: auto;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    border: 1px solid;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.inputBox textarea{
+    display: block;
+    border-radius: 10px;
+    text-indent: 10px;
+    padding: 10px 0;
+}
+
+
+.inputBox label{
+    /* width: 50%; */
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.inputBox input{
+    height: 2rem;
+    width: 95%;
+    border: 1.5px solid;
+    border-radius: 8px;
+    text-indent: 10px;
+}
+
+.inputBox select{
+    height: 4rem;
+    width: 97%;
+    border: 1.5px solid;
+    border-radius: 8px;
+}

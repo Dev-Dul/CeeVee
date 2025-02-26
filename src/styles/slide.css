@@ -1,6 +1,6 @@
 section.slide{
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     /* top: -13rem; */
     left: 0;
     right: 0;
@@ -26,6 +26,7 @@ section.slide.active{
 
 section.slide.inactive{
     opacity: 0;
+    display: none;
     z-index: -1;
 }
 
@@ -37,10 +38,12 @@ section.slide h2{
 }
 
 .slide:nth-of-type(2) textarea{
+    padding: 5px;
     border-radius: 10px;
+    text-indent: 10px;
 }
 
-label{
+.sLabel{
     width: 50%;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -52,14 +55,14 @@ label{
     /* border: 1px solid; */
 }
 
-label > span{
+.sLabel > span{
     display: block;
     /* text-align: left; */
     /* margin-left: -17.5rem; */
     margin-right: auto;
 }
 
-label input{
+.sLabel input{
     display: block;
     margin: 0 auto;
     width: 95%;
@@ -75,7 +78,38 @@ label input:focus{
 
 .buttons{
     width: 50%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+.slide:nth-of-type(3), .slide:nth-of-type(4){
+    display: block;
+    height: 400px;
+    overflow: scroll;
+    border: 2px solid red;
+    scrollbar-width: none;
+}
+
+.slide:nth-of-type(3).active, .slide:nth-of-type(4).active{
+    display: block;
+}
+
+
+.slide:nth-of-type(3) .ed{
+    /* display: flex; */
+    /* height: 100%; */
+    width: 100%;
+    padding: 2rem 0;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+}
+
+.slide:nth-of-type(3) h2, .slide:nth-of-type(4) h2{
+    margin-left: 5rem;
+    margin-bottom: 0;
+}
+
