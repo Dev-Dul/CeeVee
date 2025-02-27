@@ -1,6 +1,6 @@
 .inputBox{
     height: auto;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     margin-top: 1.5rem;
     border: 1px solid;
@@ -36,7 +36,7 @@
 }
 
 .inputBox select{
-    height: 4rem;
+    height: 2.5rem;
     width: 97%;
     border: 1.5px solid;
     border-radius: 8px;

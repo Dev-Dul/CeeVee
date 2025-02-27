@@ -4,16 +4,16 @@ import '../styles/slide.css'
 
 function Skills(){
     return (
-        <div className="skills">
-            <label>
-                Skill Name: {' '}
-                <input type="text" />
-            </label>
-            <label>
-                Proficiency Level: {' '}
-                <input type="range" min={20} max={100} />
-            </label>
-        </div>
+      <div className="skills">
+        <label>
+          <span>Skill: </span>
+          <input type="text" />
+        </label>
+        <label>
+          <span>Proficiency Level: </span>
+          <input type="range" min={20} max={100} />
+        </label>
+      </div>
     );
 }
 
