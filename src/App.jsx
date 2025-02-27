@@ -9,6 +9,10 @@ function App() {
     setCount(count + 1);
   }
 
+  function back(){
+    setCount(count - 1);
+  }
+
   const positions = ['first', 'second', 'third', 'fourth', 'fifth']
 
   return (
@@ -17,7 +21,7 @@ function App() {
       {/* <Slide order="first" /> */}
       <div className="parent">
           {positions.map((pos, index) => {
-            return <Slide order={pos} key={index} bttn={next} cnt={count}/>
+            return <Slide order={pos} key={index} bttn={next} back={back} cnt={count}/>
           })}
       </div>
     </div>

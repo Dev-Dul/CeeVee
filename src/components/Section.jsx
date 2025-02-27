@@ -48,7 +48,7 @@ function Slide(props){
             <section className={`slide ${props.cnt === 2 ? 'active' : 'inactive'} `} >
                 <h2>Professional Summary</h2>
                 <textarea name="summary" id="summary" cols="40" rows="15" placeholder='Write a brief, compelling and captivating history of your career. '></textarea>
-                <Buttons name='second' next={props.bttn} count={props.cnt} />
+                <Buttons name='second' next={props.bttn} back={props.back} count={props.cnt} />
             </section>
         )
     }else if(props.order === 'third'){
@@ -63,7 +63,7 @@ function Slide(props){
               className="newBlock"
               onClick={() => <Block name="School" cert="school" />}
             >Add School</button>
-            <Buttons name='third' next={props.bttn} count={props.cnt} />
+            <Buttons name='third' next={props.bttn} back={props.back} count={props.cnt} />
           </section>
         );
     }else if(props.order === 'fourth'){
@@ -78,7 +78,7 @@ function Slide(props){
               className="newBlock"
               onClick={() => <Block name="Organization" cert="role" />}
             >Add Experience</button>
-            <Buttons name='fourth' next={props.bttn} count={props.cnt} />
+            <Buttons name='fourth' next={props.bttn} back={props.back} count={props.cnt} />
           </section>
         );
     }else{
@@ -89,7 +89,7 @@ function Slide(props){
             <Skills />
             <Skills />
             <button type="button" onClick={() => <Skills />}>Add Skill</button>
-            <Buttons name='fifth' next={props.bttn} count={props.cnt} />
+            <Buttons name='fifth' next={props.bttn} back={props.back} count={props.cnt} />
           </section>
         );
     }

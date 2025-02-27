@@ -1,6 +1,6 @@
 
 
-function Buttons({ name, next }) {
+function Buttons({ name, next, back }) {
   if (name === "first") {
     return (
       <div className="btns first">
@@ -11,7 +11,7 @@ function Buttons({ name, next }) {
 
   return (
     <div className="buttons">
-      <button>Back</button>
+      <button onClick={back}>Back</button>
       <button onClick={next}>Next</button>
     </div>
   );
