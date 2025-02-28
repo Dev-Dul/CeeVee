@@ -1,8 +1,9 @@
 import Buttons from './Buttons';
 import Block from './Block';
 import '../styles/slide.css'
+import { useState } from 'react';
 
-function Skills(){
+function Skills(props){
     return (
       <div className="skills">
         <label>
@@ -19,7 +20,36 @@ function Skills(){
 
 
 function Slide(props){
-    console.log(props.cnt);
+  const [blocks, setBlocks] = useState([
+    {id: crypto.randomUUID()},
+    {id: crypto.randomUUID()},
+    {id: crypto.randomUUID()}
+  ]);
+
+  const [blocksTwo, setBlocksTwo] = useState([
+    {id: crypto.randomUUID()},
+    {id: crypto.randomUUID()},
+    {id: crypto.randomUUID()}
+  ]);
+
+  const [skills, setSkills] = useState([
+    { id: crypto.randomUUID() },
+    { id: crypto.randomUUID() },
+    { id: crypto.randomUUID() }
+  ]);
+
+  function addBlock(){
+    setBlocks(prevBlocks => [...prevBlocks, {id: crypto.randomUUID() }]);
+  }
+
+  function addBlockTwo(){
+    setBlocksTwo(prevBlocks => [...prevBlocks, {id: crypto.randomUUID() }]);
+  }
+
+  function addSkills(){
+    setSkills(prevSkiils => [...prevSkiils, {id: crypto.randomUUID() }])
+  }
+
     if(props.order === 'first'){
         return (
           <section className={`slide ${props.cnt === 1 ? 'active' : 'inactive'} `} >
@@ -55,40 +85,56 @@ function Slide(props){
         return (
           <section className={`slide ${props.cnt === 3 ? 'active' : 'inactive'} `} >
             <h2>Education</h2>
-            <Block name="School" cert="school" />
-            <Block name="School" cert="school" />
-            <Block name="School" cert="school" />
+            {blocks.map(block => {
+              return <Block name="School" cert="school" id={block.id} key={block.id} />;
+            })}
             <button
               type="button"
               className="newBlock"
-              onClick={() => <Block name="School" cert="school" />}
+              onClick={() => addBlock()}
             >Add School</button>
             <Buttons name='third' next={props.bttn} back={props.back} count={props.cnt} />
           </section>
         );
     }else if(props.order === 'fourth'){
         return (
-          <section className={`slide ${props.cnt === 4 ? 'active' : 'inactive'}`} >
+          <section
+            className={`slide ${props.cnt === 4 ? "active" : "inactive"}`}
+          >
             <h2>Experience</h2>
-            <Block name="Organization" cert="role" />
-            <Block name="Organization" cert="role" />
-            <Block name="Organization" cert="role" />
+            {blocksTwo.map((block) => {
+              return (
+                <Block
+                  name="Organization"
+                  cert="role"
+                  id={block.id}
+                  key={block.id}
+                />
+              );
+            })}
             <button
               type="button"
               className="newBlock"
-              onClick={() => <Block name="Organization" cert="role" />}
-            >Add Experience</button>
-            <Buttons name='fourth' next={props.bttn} back={props.back} count={props.cnt} />
+              onClick={() => addBlockTwo() }
+            >
+              Add Experience
+            </button>
+            <Buttons
+              name="fourth"
+              next={props.bttn}
+              back={props.back}
+              count={props.cnt}
+            />
           </section>
         );
     }else{
         return (
           <section className={ `slide ${props.cnt === 5 ? 'active' : 'inactive'} `} >
             <h2>Skills</h2>
-            <Skills />
-            <Skills />
-            <Skills />
-            <button type="button" onClick={() => <Skills />}>Add Skill</button>
+            {skills.map(skill => {
+              return <Skills id={skill.id} key={skill.id} />
+            })}
+            <button type="button" onClick={() => addSkills() }>Add Skill</button>
             <Buttons name='fifth' next={props.bttn} back={props.back} count={props.cnt} />
           </section>
         );

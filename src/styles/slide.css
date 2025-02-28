@@ -84,7 +84,7 @@ label input:focus{
     justify-content: space-between;
 }
 
-.slide:nth-of-type(3), .slide:nth-of-type(4){
+.slide:nth-of-type(3), .slide:nth-of-type(4), .slide:nth-of-type(5){
     display: block;
     height: 400px;
     overflow: scroll;
@@ -92,7 +92,7 @@ label input:focus{
     border-width: 2px;
 }
 
-.slide:nth-of-type(3).active, .slide:nth-of-type(4).active{
+.slide:nth-of-type(3).active, .slide:nth-of-type(4).active, .slide:nth-of-type(5).active{
     display: block;
 }
 
@@ -108,9 +108,14 @@ label input:focus{
     margin-bottom: 2rem;
 }
 
-.slide:nth-of-type(3) h2, .slide:nth-of-type(4) h2{
+.slide:nth-of-type(3) h2, .slide:nth-of-type(4) h2, .slide:nth-of-type(5) h2{
     margin-left: 5rem;
     margin-bottom: 0;
+}
+
+
+.slide:nth-of-type(5) > button{
+    margin-top: 1.5rem;
 }
 
 .skills{
@@ -118,8 +123,9 @@ label input:focus{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* flex-direction: column; */
     /* border: 1px solid; */
+    padding-top: 10px;
+    /* background: grey; */
 }
 
 

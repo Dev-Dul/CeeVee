@@ -1,18 +1,17 @@
 import '../styles/block.css';
+
 function Range({ startYear }) {
-
-  const sel = document.createElement("select");
   const endYear = new Date().getFullYear();
-  for(let year = endYear; year >= startYear; year--) {
-    let option = document.createElement("option");
-    option.value = year;
-    option.textContent = year;
-    sel.appendChild(option);
-  }
-
-  console.log(sel);
-
-  return sel;
+  return (
+    <select>
+      {Array.from({ length: endYear - startYear + 1 }, (_, i) => {
+        const year = endYear - i;
+        return (
+          <option key={year} value={year}> {year} </option>
+        );
+      })}
+    </select>
+  );
 }
 
 function Block({ name, cert }) {
@@ -40,8 +39,14 @@ function Block({ name, cert }) {
         <div className="inputBox">
             <label htmlFor="duration">Duration </label>
             <div className="dates">
-              {/* <Range startYear={1950} />
-            <Range startYear={1950} /> */}
+              <div className="rng">
+                <span>Year Started</span>
+                <Range startYear={1950} />
+              </div>
+              <div className="rng">
+                <span>Year Ended</span>
+                <Range startYear={1950} />
+              </div>
             </div>
         </div>
       </div>
@@ -73,12 +78,20 @@ function Block({ name, cert }) {
       <div className="inputBox">
         <label htmlFor="duration">Duration </label>
         <div className="dates">
-          {/* <Range startYear={1950} />
-        <Range startYear={1950} /> */}
+          <div className="rng">
+            <span>Year Started</span>
+            <Range startYear={1950} />
+          </div>
+          <div className="rng">
+            <span>Year Ended</span>
+            <Range startYear={1950} />
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
+// export { Block, Range } ;
 
 export default Block;
