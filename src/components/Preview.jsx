@@ -18,8 +18,8 @@ function Preview(){
     return(
         <article>
             <div className="header">
-                <h2 className="name"></h2>
-                <p className="title"></p>
+                <h2 className="name">Abdul 2.0</h2>
+                <p className="title">Developer</p>
             </div>
             <div className="main-part">
                 <aside>
@@ -31,11 +31,11 @@ function Preview(){
                     </div>
                     <div className="second">
                         <h2 className="lines">EDUCATION</h2>
+                        {/* <Ed />
                         <Ed />
-                        <Ed />
-                        <Ed />
+                        <Ed /> */}
                     </div>
-                    <div className="thid">
+                    <div className="third">
                         <h2 className="lines">SKILLS</h2>
                     </div>
                 </aside>
@@ -46,3 +46,5 @@ function Preview(){
         </article>
     )
 }
+
+export default Preview;
