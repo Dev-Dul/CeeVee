@@ -13,7 +13,7 @@ function App() {
     setCount(count - 1);
   }
 
-  const positions = ['first', 'second', 'third', 'fourth', 'fifth']
+  const positions = ['first', 'second', 'third', 'fourth', 'fifth', 'preview']
 
   return (
     <div className="container">

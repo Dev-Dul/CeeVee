@@ -15,8 +15,6 @@ function Range({ startYear }) {
 }
 
 function Block({ name, cert }) {
-  console.log(name)
-  console.log(cert)
   if(cert !== 'role'){
     return (
       <div className="ed">

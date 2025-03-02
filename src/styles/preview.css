@@ -1,4 +1,155 @@
 article{
-    height: 800px;
+    height: 85vh;
     width: 400px;
+    border: 1px solid;
+}
+
+.header{
+    height: 20%;
+    width: 100%;
+    background: burlywood;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header h2{
+    margin-bottom: 0;
+}
+
+.header p{
+    margin: 0;
+}
+
+.main-part{
+    height: 80%;
+    display: flex;
+}
+
+.main-part aside{
+    height: 100%;
+    width: 45%;
+    border: 1px solid;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+}
+
+.lines, .details > div h2{
+    font-size: 0.8rem;
+    margin: 0 10px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid;
+    text-align: left;
+    /* width: 50%; */
+}
+
+.main-part .first{
+    background: peachpuff;
+}
+
+/* .main-part .first p{
+    margin: 0;
+} */
+
+.deets{
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin: 5px 10px;
+    text-align: left;
+}
+
+.ed-wrapper{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+}
+
+.ed-wrapper aside{
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.yr h2{
+    transform: rotate(-90deg) translateX(-25px);
+}
+
+.dts{
+    text-align: left;
+    overflow: hidden;
+}
+
+.dts > *{
+    margin: 0;
+}
+
+.dts h2{
+    font-size: 0.7rem;
+}
+
+.dts p{
+    font-size: 0.8rem;
+}
+
+.eds{
+    width: 100%;
+    display: flex;
+}
+
+.skill-wrapper{
+    width: 100%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+.skill-wrapper h3{
+    font-size: 0.8rem;
+}
+
+.skill-wrapper input{
+    height: 2px;
+    width: 50%;
+}
+
+.skill-wrapper input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+}
+
+.details > div h2 {
+    font-size: 1rem;
+}
+
+.work-wrapper > *{
+    margin: 0 10px;
+    text-align: left;
+}
+
+.work-wrapper h3{
+    font-size: 0.85rem;
+}
+
+.comp-name{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.work-wrapper p{
+    font-size: 0.7rem;
 }

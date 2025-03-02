@@ -9,8 +9,8 @@ import Preview from './components/Preview'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    <Preview />
+    <App />
+    {/* <Preview /> */}
     {/* <Range startYear={1950} /> */}
     {/* <Home /> */}
   </StrictMode>,
