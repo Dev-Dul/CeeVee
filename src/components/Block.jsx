@@ -8,7 +8,13 @@ function Range({ name, startYear, handler, index }) {
   return (
     <select onBlur={handler} data-index={index} data-parent={parent} name={field} >
       {Array.from({ length: endYear - startYear + 1 }, (_, i) => {
-        const year = endYear - i;
+        const year = (endYear + 1) - i;
+        if(year === (endYear + 1)){
+          return (
+            <option key={year} value={'default'} > Select A Year </option>
+          );
+        }
+
         return (
           <option key={year} value={year}> {year} </option>
         );
@@ -29,8 +35,8 @@ function Block({ name, cert, handler, index }) {
           <label htmlFor="schools" className="bLabel">
             Certification
           </label>
-          <select name="school" id="schools" className="bSelect"  data-parent='education' data-index={index} onBlur={handler}>
-            <option value="default" selected>Select an Option</option>
+          <select name="cert" id="schools" className="bSelect"  data-parent='education' data-index={index} onBlur={handler}>
+            <option value="default" defaultValue={'Select an Option'}>Select an Option</option>
             <option value="First School Leaving Certificate">First School Leaving Certificate</option>
             <option value="Second School Leaving Certificate">Second School Leaving Certificate</option>
             <option value="Third School Leaving Certificate">Third School Leaving Certificate</option>

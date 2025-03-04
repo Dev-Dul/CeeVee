@@ -34,7 +34,10 @@ article{
     overflow-x: hidden;
     overflow-y: scroll;
     scrollbar-width: none;
+}
 
+.main-part aside > div:not(:first-of-type){
+    margin-top: 1rem;
 }
 
 .lines, .details > div h2{
@@ -61,6 +64,10 @@ article{
     text-align: left;
 }
 
+p.email{
+    word-wrap: break-word;
+}
+
 .ed-wrapper{
     height: 80px;
     width: 100%;
@@ -77,6 +84,10 @@ article{
 }
 
 .yr h2{
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
     transform: rotate(-90deg) translateX(-25px);
 }
 
@@ -95,6 +106,10 @@ article{
 
 .dts p{
     font-size: 0.8rem;
+}
+
+.school{
+    font-weight: bold;
 }
 
 .eds{
@@ -134,6 +149,14 @@ article{
     font-size: 1rem;
 }
 
+.experience{
+    margin-top: 2rem;
+}
+
+.work-wrapper{
+    margin-top: 1rem;
+}
+
 .work-wrapper > *{
     margin: 0 10px;
     text-align: left;
@@ -152,4 +175,9 @@ article{
 
 .work-wrapper p{
     font-size: 0.7rem;
+}
+
+.summ{
+    margin: 0 10px;
+    text-align: justify;
 }

@@ -30,7 +30,7 @@ section.slide.inactive{
 }
 
 
-section.slide h2{
+section.slide > h2{
     width: 50%;
     text-align: left;
     border-bottom: 2px solid;

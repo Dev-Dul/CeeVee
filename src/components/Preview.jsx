@@ -27,9 +27,8 @@ function Sk(props){
 function Exp(props){
     return (
         <div className="work-wrapper">
-            <h3>Job Title</h3>
-            <p className="comp-name"> <span>{props.org}</span> <span>2000 - 2000</span></p>
-            <p className="role">{props.role}</p>
+            <h3>{props.org}</h3>
+            <p className="comp-name"> <span>{props.role}</span> <span>2000 - 2000</span></p>
             <p className="accom">{props.accomp}</p>
         </div>
     );
