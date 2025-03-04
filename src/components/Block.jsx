@@ -4,6 +4,7 @@ function Range({ name, startYear, handler, index }) {
   const endYear = new Date().getFullYear();
   let parent = name === 'School' ? 'education' : 'experience'
   let field = startYear === 1940 ? 'start' : 'end';
+  
   return (
     <select onBlur={handler} data-index={index} data-parent={parent} name={field} >
       {Array.from({ length: endYear - startYear + 1 }, (_, i) => {
@@ -29,11 +30,12 @@ function Block({ name, cert, handler, index }) {
             Certification
           </label>
           <select name="school" id="schools" className="bSelect"  data-parent='education' data-index={index} onBlur={handler}>
-            <option value="Primary">First School Leaving Certificate</option>
-            <option value="Secondary">Second School Leaving Certificate</option>
-            <option value="Third">Third School Leaving Certificate</option>
-            <option value="f-deg">First Degree</option>
-            <option value="s-deg">Second Degree</option>
+            <option value="default" selected>Select an Option</option>
+            <option value="First School Leaving Certificate">First School Leaving Certificate</option>
+            <option value="Second School Leaving Certificate">Second School Leaving Certificate</option>
+            <option value="Third School Leaving Certificate">Third School Leaving Certificate</option>
+            <option value="First Degree">First Degree</option>
+            <option value="Second Degree">Second Degree</option>
           </select>
         </div>
         <div className="inputBox">

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Home from './components/Home';
 import Slide from './components/Section';
+import Colossus from './components/handlers';
 import './App.css'
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
     phone: "",
     summary: "",
   });
+
+  const { datahub, handleInput, capsule } = Colossus();
 
   function handleChange(e) {
     setTitan((prev) => ({
@@ -28,7 +31,8 @@ function App() {
     setCount(count - 1);
   }
 
-  const positions = ['first', 'second', 'third', 'fourth', 'fifth', 'preview']
+  const positions = ['first', 'second', 'third', 'fourth', 'fifth', 'preview'];
+  
 
   return (
     <div className="container">
@@ -36,7 +40,7 @@ function App() {
       {/* <Slide order="first" /> */}
       <div className="parent">
           {positions.map((pos, index) => {
-            return <Slide order={pos} key={index} bttn={next} back={back} cnt={count} handleChange={handleChange} tiTan={tiTan} />
+            return <Slide order={pos} key={index} bttn={next} back={back} cnt={count} handleChange={handleChange} tiTan={tiTan} datahub={datahub} handleInput={handleInput} capsule={capsule}/>
           })}
       </div>
     </div>

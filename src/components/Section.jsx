@@ -1,7 +1,6 @@
 import Buttons from './Buttons';
 import Block from './Block';
 import Preview from './Preview'
-import { Education, Experience, Skil } from './Classes';
 import '../styles/slide.css'
 import { useState } from 'react';
 
@@ -10,7 +9,7 @@ function Skills(props){
       <div className="skills">
         <label>
           <span>Skill: </span>
-          <input type="text" />
+          <input type="text" data-parent="skills" data-index={props.index} name='skill' onBlur={props.handleInput} />
         </label>
         <label>
           <span>Proficiency Level: </span>
@@ -22,66 +21,6 @@ function Skills(props){
 
 
 function Slide(props){
-
-  const [datahub, setDatahub] = useState({
-      education: [
-        new Education(),
-        new Education(),
-        new Education(),
-      ],
-
-      experience: [
-        new Experience(),
-        new Experience(),
-        new Experience(),
-      ],
-
-      skills: [
-        new Skil(),
-        new Skil(),
-        new Skil(),
-      ]
-    });
-
-    // console.log(datahub);
-
-  function handleInput(e){
-    if(e.target.value !== ''){
-      const parent = e.target.dataset.parent;
-      const index = Number(e.target.dataset.index);
-      const field = e.target.name;
-      const newValue = e.target.value;
-      setDatahub((prev) =>({
-        ...prev,
-        [parent]: prev[parent].map((item, i) => (i === index ? item.update(field, newValue) : item)),
-      }));
-    }
-  }
-
-  
-  
-
-  function updateEd(){
-    setDatahub((prev) => ({
-      ...prev,
-      education: [...prev.education, new Education() ]
-    }));
-  }
-
-  function updateEx(){
-    setDatahub((prev) => ({
-      ...prev,
-      experience: [...prev.experience, new Experience() ]
-    }));
-  }
-
-
-  function updateSkills(){
-    setDatahub((prev) => ({
-      ...prev,
-      skills: [...prev.skills, new Skil() ]
-    }));
-  }
 
 
   const [blocks, setBlocks] = useState([
@@ -105,19 +44,19 @@ function Slide(props){
   function addBlock(){
     if(blocks.length < 5){
       setBlocks(prevBlocks => [...prevBlocks, {id: crypto.randomUUID() }]);
-      updateEd();
+      props.capsule.updateEd();
     }
   }
 
   function addBlockTwo(){
     setBlocksTwo(prevBlocks => [...prevBlocks, {id: crypto.randomUUID() }]);
-    updateEx();
+    props.capsule.updateEx();
   }
 
   function addSkills(){
     if(skills.length < 5){
-      setSkills(prevSkiils => [...prevSkiils, {id: crypto.randomUUID() }]);
-      updateSkills();
+      setSkills(prevSkills => [...prevSkills, {id: crypto.randomUUID() }]);
+      props.capsule.updateSkills();
     }
   }
 
@@ -157,7 +96,7 @@ function Slide(props){
           <section className={`slide ${props.cnt === 3 ? 'active' : 'inactive'} `} >
             <h2>Education</h2>
             {blocks.map((block, index) => {
-              return <Block name="School" cert="school" id={block.id} key={block.id} handler={handleInput} index={index} />;
+              return <Block name="School" cert="school" id={block.id} key={block.id} handler={props.handleInput} index={index} />;
             })}
             <button
               type="button"
@@ -181,7 +120,7 @@ function Slide(props){
                   id={block.id}
                   key={block.id}
                   index={index}
-                  handler={handleInput}
+                  handler={props.handleInput}
                 />
               );
             })}
@@ -205,7 +144,7 @@ function Slide(props){
           <section className={ `slide ${props.cnt === 5 ? 'active' : 'inactive'} `} >
             <h2>Skills</h2>
             {skills.map((skill, index) => {
-              return <Skills id={skill.id} key={skill.id} handleInput={handleInput} index={index} />
+              return <Skills id={skill.id} key={skill.id} handleInput={props.handleInput} index={index} />
             })}
             <button type="button" onClick={() => addSkills() }>Add Skill</button>
             <Buttons name='fifth' next={props.bttn} back={props.back} count={props.cnt} />
@@ -213,11 +152,12 @@ function Slide(props){
         );
     }else{
      
+      console.log(props.datahub);
       return (
         <section className= {`slide ${props.cnt === 6 ? 'active' : "inactive"}`}>
           <h2>CV Preview</h2>
           <p>Does everything look good?</p>
-          <Preview data={datahub} processor={handleInput} titan={props.tiTan} />
+          <Preview data={props.datahub} processor={props.handleInput} titan={props.tiTan} />
 
         </section>
       )
