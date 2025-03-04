@@ -1,9 +1,11 @@
 import '../styles/block.css';
 
-function Range({ startYear }) {
+function Range({ name, startYear, handler, index }) {
   const endYear = new Date().getFullYear();
+  let parent = name === 'School' ? 'education' : 'experience'
+  let field = startYear === 1940 ? 'start' : 'end';
   return (
-    <select>
+    <select onBlur={handler} data-index={index} data-parent={parent} name={field} >
       {Array.from({ length: endYear - startYear + 1 }, (_, i) => {
         const year = endYear - i;
         return (
@@ -14,19 +16,19 @@ function Range({ startYear }) {
   );
 }
 
-function Block({ name, cert }) {
+function Block({ name, cert, handler, index }) {
   if(cert !== 'role'){
     return (
       <div className="ed">
         <div className="inputBox">
           <label htmlFor="school">{name}</label>
-          <input type="text" name="school" id="school" />
+          <input type="text" name="school" id="school" data-parent="education" data-index={index} onBlur={handler} />
         </div>
         <div className="inputBox">
           <label htmlFor="schools" className="bLabel">
             Certification
           </label>
-          <select name="schools" id="schools" className="bSelect">
+          <select name="school" id="schools" className="bSelect"  data-parent='education' data-index={index} onBlur={handler}>
             <option value="Primary">First School Leaving Certificate</option>
             <option value="Secondary">Second School Leaving Certificate</option>
             <option value="Third">Third School Leaving Certificate</option>
@@ -39,11 +41,11 @@ function Block({ name, cert }) {
             <div className="dates">
               <div className="rng">
                 <span>Year Started</span>
-                <Range startYear={1950} />
+                <Range  name={name} startYear={1940} handler={handler} index={index} />
               </div>
               <div className="rng">
                 <span>Year Ended</span>
-                <Range startYear={1950} />
+                <Range name={name} startYear={1950} handler={handler} index={index} />
               </div>
             </div>
         </div>
@@ -55,13 +57,13 @@ function Block({ name, cert }) {
     <div className="xp">
       <div className="inputBox">
         <label htmlFor="org">{name}</label>
-        <input type="text" name="org" id="org" />
+        <input type="text" name="org" data-parent='experience' data-index={index} id="org" onBlur={handler}/>
       </div>
       <div className="inputBox">
         <label htmlFor="role" className="bLabel">
           Role:
         </label>
-        <input type="text" name="role" id="role" className="bInput" />
+        <input type="text" name="role" id="role" className="bInput"  data-parent='experience' data-index={index} onBlur={handler}/>
       </div>
       <div className="inputBox">
         <label htmlFor="accomp">Any Notable Accomplishments?</label>
@@ -70,7 +72,10 @@ function Block({ name, cert }) {
           id="accomp"
           cols="45"
           rows="7"
+          data-parent='experience'
+          data-index={index}
           className="bText"
+          onBlur={handler}
         ></textarea>
       </div>
       <div className="inputBox">
@@ -78,11 +83,11 @@ function Block({ name, cert }) {
         <div className="dates">
           <div className="rng">
             <span>Year Started</span>
-            <Range startYear={1950} />
+            <Range name={name} startYear={1950} handler={handler} index={index} />
           </div>
           <div className="rng">
             <span>Year Ended</span>
-            <Range startYear={1950} />
+            <Range name={name} startYear={1950} handler={handler} index={index} />
           </div>
         </div>
       </div>
@@ -90,6 +95,5 @@ function Block({ name, cert }) {
   );
 }
 
-// export { Block, Range } ;
 
 export default Block;

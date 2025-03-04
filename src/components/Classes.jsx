@@ -1,55 +1,80 @@
 class Education{
-    constructor(){
-        this.store = new Array(4);
+    constructor(school='', cert='', start='', end=''){
+        this.school = school;
+        this.cert = cert;
+        this.start = start;
+        this.end = end;
+        this.id = crypto.randomUUID();
     }
 
-    update(data){
-        this.store.push(data);
+    update(field, data){
+        return new Education(
+            field === 'school' ? data : this.school,
+            field === 'cert' ? data : this.cert,
+            field === 'start' ? data : this.start,
+            field === 'end' ? data : this.end
+        );
     }
 
 
     getData(){
-        return [{
+        return {
             school: this.school,
             cert: this.cert,
             start: this.start,
             end: this.end,
-        }];
+            id: this.id
+        };
     }
 }
 
-class Experience{
-    constructor(){
-        this.org = '';
-        this.role = '';
-        this.accomplishment = '';
-    }
+class Experience {
+  constructor(org='', role='', accomplishment='') {
+    this.org = org;
+    this.role = role;
+    this.accomplishment = accomplishment;
+    this.id = crypto.randomUUID();
+  }
 
-    updateOrg(org){
-        this.org = org;
-    }
+  update(field, data) {
+    return new Experience(
+      field === "org" ? data : this.org,
+      field === "role" ? data : this.role,
+      field === "accomp" ? data : this.accomplishment
+    );
+  }
 
-    updateRole(role){
-        this.role = role;
+  getData(){
+    return {
+        org: this.org,
+        role: this.role,
+        accomp: this.accomplishment,
+        id: this.id
     }
-
-    updateAccomp(accomp){
-        this.accomplishment = accomp;
-    }
+  }
+  
 }
 
 class Skil{
-    constructor(){
-        this.skill = '';
-        this.level = '';
-    }
-
-    updateSkill(skill){
+    constructor(skill='', level=''){
         this.skill = skill;
+        this.level = level;
+        this.id = crypto.randomUUID();
     }
 
-    updateLevel(lvl){
-        this.level = lvl;
+    update(field, data){
+        return new Skil(
+            field === 'skill' ? data : this.skill,
+            field === 'level' ? data : this.level
+        )
+    }
+
+    getData(){
+        return {
+            skill: this.skill,
+            level: this.level,
+            id: this.id
+        }
     }
 }
 
