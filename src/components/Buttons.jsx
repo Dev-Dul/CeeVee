@@ -1,18 +1,42 @@
+import { useState } from "react";
+import Validate from "./ErrorHandler";
+import ShowError from "./ShowError";
 
+function Buttons({ name, next, back, tiTan, datahub }){
+  const [errorMessage, setErrorMessage] = useState(null);
+  let errorTimer = null;
+  
+  function handleNext(){
+    const error = Validate(name, tiTan, datahub);
 
-function Buttons({ name, next, back }) {
-  if (name === "first") {
+    if(error){
+      setErrorMessage(error);
+      if(errorTimer) clearTimeout(errorTimer);
+
+      errorTimer = setTimeout(() => {
+        setErrorMessage(null);
+      }, 3500);
+
+    }else{
+      setErrorMessage(null);
+      next();
+    }
+  }
+
+  if(name === "first"){
     return (
       <div className="btns first">
-        <button onClick={next}>Next</button>
+        {errorMessage && <ShowError msg={errorMessage} />}
+        <button onClick={handleNext}>Next</button>
       </div>
     );
   }
 
-  return (
+  return(
     <div className="buttons">
+      {errorMessage && <ShowError msg={errorMessage} />}
       <button onClick={back}>Back</button>
-      <button onClick={next}>Next</button>
+      <button onClick={handleNext}>Next</button>
     </div>
   );
 }

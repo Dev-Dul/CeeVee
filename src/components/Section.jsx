@@ -80,7 +80,7 @@ function Slide(props){
               <span>Email: </span>
               <input type="email" name="email" id="email" value={props.tiTan.email} onChange={props.handleChange} />
             </label>
-            <Buttons name="first"  next={props.bttn} count={props.cnt} />
+            <Buttons name="first"  next={props.bttn} count={props.cnt} tiTan={props.tiTan} datahub={props.datahub} />
           </section>
         );
     }else if(props.order === 'second'){
@@ -88,7 +88,7 @@ function Slide(props){
             <section className={`slide ${props.cnt === 2 ? 'active' : 'inactive'} `} >
                 <h2>Professional Summary</h2>
                 <textarea name="summary" id="summary" cols="40" rows="15" value={props.tiTan.summary} placeholder='Write a brief, compelling and captivating history of your career. ' onChange={props.handleChange}></textarea>
-                <Buttons name='second' next={props.bttn} back={props.back} count={props.cnt} />
+                <Buttons name='second' next={props.bttn} back={props.back} count={props.cnt} tiTan={props.tiTan} datahub={props.datahub} />
             </section>
         )
     }else if(props.order === 'third'){
@@ -103,7 +103,7 @@ function Slide(props){
               className="newBlock"
               onClick={() => addBlock()}
             >Add School</button>
-            <Buttons name='third' next={props.bttn} back={props.back} count={props.cnt} />
+            <Buttons name='third' next={props.bttn} back={props.back} count={props.cnt} tiTan={props.tiTan} datahub={props.datahub} />
           </section>
         );
     }else if(props.order === 'fourth'){
@@ -127,7 +127,7 @@ function Slide(props){
             <button
               type="button"
               className="newBlock"
-              onClick={() => addBlockTwo() }
+              onClick={() => addBlockTwo()}
             >
               Add Experience
             </button>
@@ -136,6 +136,8 @@ function Slide(props){
               next={props.bttn}
               back={props.back}
               count={props.cnt}
+              tiTan={props.tiTan}
+              datahub={props.datahub}
             />
           </section>
         );
@@ -147,7 +149,7 @@ function Slide(props){
               return <Skills id={skill.id} key={skill.id} handleInput={props.handleInput} index={index} />
             })}
             <button type="button" onClick={() => addSkills() }>Add Skill</button>
-            <Buttons name='fifth' next={props.bttn} back={props.back} count={props.cnt} />
+            <Buttons name='fifth' next={props.bttn} back={props.back} count={props.cnt} tiTan={props.tiTan} datahub={props.datahub} />
           </section>
         );
     }else{

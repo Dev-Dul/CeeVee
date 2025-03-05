@@ -16,6 +16,14 @@ class Education{
         );
     }
 
+    isEmpty(){
+        if(this.start === '' || this.cert === '' || this.start === '' || this.end === ''){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
     getData(){
         return {
@@ -44,6 +52,14 @@ class Experience {
     );
   }
 
+  isEmpty(){
+        if(this.org === '' || this.role === '' || this.accomplishment === ''){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
   getData(){
     return {
         org: this.org,
@@ -55,27 +71,35 @@ class Experience {
   
 }
 
-class Skil{
-    constructor(skill='', level=''){
-        this.skill = skill;
-        this.level = level;
-        this.id = crypto.randomUUID();
-    }
+class Skil {
+  constructor(skill = "", level = "") {
+    this.skill = skill;
+    this.level = level;
+    this.id = crypto.randomUUID();
+  }
 
-    update(field, data){
-        return new Skil(
-            field === 'skill' ? data : this.skill,
-            field === 'level' ? data : this.level
-        )
-    }
+  update(field, data) {
+    return new Skil(
+      field === "skill" ? data : this.skill,
+      field === "level" ? data : this.level
+    );
+  }
 
-    getData(){
-        return {
-            skill: this.skill,
-            level: this.level,
-            id: this.id
-        }
+  isEmpty() {
+    if(this.skill === "" || this.level === "" ){
+      return true;
+    }else{
+      return false;
     }
+  }
+
+  getData() {
+    return {
+      skill: this.skill,
+      level: this.level,
+      id: this.id,
+    };
+  }
 }
 
 export { Education, Experience, Skil };
