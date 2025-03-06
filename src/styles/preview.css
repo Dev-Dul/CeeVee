@@ -53,6 +53,22 @@ article{
     /* width: 50%; */
 }
 
+.lines{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h2.right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h2.right > i{
+    font-size: 1rem;
+}
+
 .main-part .first{
     background: peachpuff;
 }
@@ -149,6 +165,17 @@ p.email{
     height: 0;
     background: transparent;
     border: none;
+    visibility: hidden;
+}
+
+.skill-wrapper input::-moz-range-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+    visibility: hidden;
 }
 
 .details > div h2 {

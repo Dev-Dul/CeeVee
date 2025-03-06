@@ -45,19 +45,19 @@ function Preview(props){
             <div className="main-part">
                 <aside>
                     <div className="first">
-                        <h2 className="lines">CONTACT</h2>
-                        <p className="deets num">{props.titan.phone}</p>
-                        <p className="deets email">{props.titan.email}</p>
+                        <h2 className="lines"><span>CONTACT</span> <i className="fa-solid fa-id-badge"></i></h2>
+                        <p className="deets num"><i className="fa-solid fa-phone"></i> <span>{props.titan.phone}</span></p>
+                        <p className="deets email"><i className="fa-solid fa-envelope"></i> <span>{props.titan.email}</span></p>
                     </div>
                     <div className="second">
-                        <h2 className="lines">EDUCATION</h2>
+                        <h2 className="lines"><span>EDUCATION</span> <i className="fa-solid fa-graduation-cap"></i></h2>
                         {props.data.education.map((ed) => {
                             const details = ed.getData();
                             return <Ed year={details.start} school={details.school} start={details.start} end={details.end} deg={details.cert} key={details.id} />
                         })}
                     </div>
                     <div className="third">
-                        <h2 className="lines">SKILLS</h2>
+                        <h2 className="lines"><span>SKILLS</span> <i className="fa-solid fa-lightbulb"></i></h2>
                         {props.data.skills.map((sk) => {
                             const details = sk.getData();
                             return <Sk skill={details.skill} level={details.level} key={details.id} />
@@ -66,11 +66,11 @@ function Preview(props){
                 </aside>
                 <div className='details'>
                     <div className="summary">
-                        <h2>Professional Summary</h2>
+                        <h2 className='right'><span>Professional Summary</span> <i className="fa-solid fa-user"></i></h2>
                         <p className="summ">{props.titan.summary}</p>
                     </div>
                     <div className="experience">
-                        <h2>Work Experience</h2>
+                        <h2 className='right'><span>Work Experience</span> <i className="fa-solid fa-briefcase"></i></h2>
                         {props.data.experience.map((exp) => {
                             const details = exp.getData();
                             return <Exp org={details.org} role={details.role} accomp={details.accomp} key={details.id} />
