@@ -2,12 +2,12 @@ import { useState } from "react";
 import Validate from "./ErrorHandler";
 import ShowError from "./ShowError";
 
-function Buttons({ name, next, back, tiTan, datahub }){
+function Buttons(props){
   const [errorMessage, setErrorMessage] = useState(null);
   let errorTimer = null;
   
   function handleNext(){
-    const error = Validate(name, tiTan, datahub);
+    const error = Validate(props.name, props.tiTan, props.datahub);
 
     if(error){
       setErrorMessage(error);
@@ -19,15 +19,23 @@ function Buttons({ name, next, back, tiTan, datahub }){
 
     }else{
       setErrorMessage(null);
-      next();
+      props.next();
     }
   }
 
-  if(name === "first"){
+  if(props.name === "first"){
     return (
       <div className="btns first">
         {errorMessage && <ShowError msg={errorMessage} />}
         <button onClick={handleNext}>Next</button>
+      </div>
+    );
+  }else if(props.name === "sixth"){
+    return(
+      <div className="buttons">
+        {errorMessage && <ShowError msg={errorMessage} />}
+        <button onClick={props.handle}>EDIT</button>
+        <button onClick={props.download}>Download</button>
       </div>
     );
   }
@@ -35,7 +43,7 @@ function Buttons({ name, next, back, tiTan, datahub }){
   return(
     <div className="buttons">
       {errorMessage && <ShowError msg={errorMessage} />}
-      <button onClick={back}>Back</button>
+      <button onClick={props.back}>Back</button>
       <button onClick={handleNext}>Next</button>
     </div>
   );

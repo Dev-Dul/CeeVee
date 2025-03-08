@@ -17,7 +17,7 @@ class Education{
     }
 
     isEmpty(){
-        if(this.start === '' || this.cert === '' || this.start === '' || this.end === ''){
+        if(this.start === '' || this.cert === '' || this.start === '' || this.end === '' || this.start === 'default' || this.end === 'default'){
             return true;
         }else{
             return false;
@@ -37,10 +37,12 @@ class Education{
 }
 
 class Experience {
-  constructor(org='', role='', accomplishment='') {
+  constructor(org='', role='', accomplishment='', start='', end='') {
     this.org = org;
     this.role = role;
     this.accomplishment = accomplishment;
+    this.start = start;
+    this.end = end;
     this.id = crypto.randomUUID();
   }
 
@@ -48,12 +50,14 @@ class Experience {
     return new Experience(
       field === "org" ? data : this.org,
       field === "role" ? data : this.role,
-      field === "accomp" ? data : this.accomplishment
+      field === "accomp" ? data : this.accomplishment,
+      field === "start" ? data : this.start,
+      field === "end" ? data : this.end
     );
   }
 
   isEmpty(){
-        if(this.org === '' || this.role === '' || this.accomplishment === ''){
+        if(this.org === '' || this.role === '' || this.accomplishment === '', this.start === '', this.end === '' || this.start === 'default' || this.end === 'default'){
             return true;
         }else{
             return false;
@@ -65,6 +69,8 @@ class Experience {
         org: this.org,
         role: this.role,
         accomp: this.accomplishment,
+        start: this.start,
+        end: this.end,
         id: this.id
     }
   }

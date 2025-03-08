@@ -1,6 +1,29 @@
+@font-face {
+    font-family: "refile";
+    src: url('../assets/Fonts/Refile.otf');
+}
+
+
+@font-face {
+    font-family: "italianno";
+    src: url('../assets/Fonts/Italianno-Regular.ttf');
+}
+
+
+@font-face {
+    font-family: "cinzel";
+    src: url('../assets/Fonts/CinzelDecorative-Bold.ttf');
+}
+
+@font-face {
+    font-family: "against";
+    src: url('../assets/Fonts/Refile.otf');
+}
+
 article{
-    height: 85vh;
+    height: auto;
     width: auto;
+    max-width: 800px;
     border: 1px solid;
 }
 
@@ -18,11 +41,13 @@ article{
 .header h2{
     margin-bottom: 0;
     font-size: 1.8rem;
+    font-family: "refile";
 }
 
 .header p{
     margin: 0;
     font-size: 1.3rem;
+    font-family: "italianno";
 }
 
 .main-part{
@@ -36,7 +61,7 @@ article{
     /* max-width: 180px; */
     border-right: 1px solid;
     overflow-x: hidden;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     scrollbar-width: none;
 }
 
@@ -57,9 +82,11 @@ article{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: "cinzel";
 }
 
 h2.right{
+    width: 95%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,6 +109,13 @@ h2.right > i{
     font-weight: 500;
     margin: 5px 10px;
     text-align: left;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+}
+
+.deets p, .deets i{
+    display: inline;
 }
 
 p.email{
@@ -131,7 +165,9 @@ p.email{
 }
 
 .school{
-    font-weight: bold;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: "against";
 }
 
 .eds{
@@ -197,13 +233,20 @@ p.email{
 
 .work-wrapper h3{
     font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: "against";
 }
 
 .comp-name{
-    width: 100%;
+    width: 95%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.comp-name span:first-of-type{
+    text-transform: capitalize;
 }
 
 .work-wrapper p{
@@ -212,5 +255,7 @@ p.email{
 
 .summ{
     margin: 0 10px;
-    text-align: justify;
+    max-width: 100%;
+    word-wrap: break-word;
+    text-transform: capitalize;
 }

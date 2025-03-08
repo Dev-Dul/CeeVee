@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'rosma';
+  src: url('./assets/Fonts/RosmatikaRegular-BWA45.ttf');
+}
+
+@font-face {
+  font-family: "rochester";
+  src: url('./assets/Fonts/Italianno-Regular.ttf');
+}
+
+@font-face {
+  font-family: "stan";
+  src: url('./assets/Fonts/Stanbriged.ttf');
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -83,4 +98,20 @@ section.home.active{
 section.home.inactive{
   opacity: 0;
   display: none;
+}
+
+h1{
+    font-family: "rosma";
+    margin-bottom: 0;
+}
+
+section.home > h2{
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  font-family: "rochester";
+}
+
+input, textarea, select{
+  font-family: "stan";
 }

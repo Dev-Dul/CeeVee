@@ -1,8 +1,9 @@
 import Buttons from './Buttons';
 import Block from './Block';
-import Preview from './Preview'
+// import Preview from './Preview'
 import '../styles/slide.css'
 import { useState } from 'react';
+import Preview, { Prev, ToHtml, ToImage, toPDF } from './Preview'
 
 function Skills(props){
     return (
@@ -22,7 +23,7 @@ function Skills(props){
 
 function Slide(props){
 
-
+  const [imgData, setImgData] = useState(null);
   const [blocks, setBlocks] = useState([
     {id: crypto.randomUUID()},
     {id: crypto.randomUUID()},
@@ -153,16 +154,34 @@ function Slide(props){
           </section>
         );
     }else{
-     
-      console.log(props.datahub);
-      return (
-        <section className= {`slide ${props.cnt === 6 ? 'active' : "inactive"}`}>
-          <h2>CV Preview</h2>
-          <p>Does everything look good?</p>
-          <Preview data={props.datahub} processor={props.handleInput} titan={props.tiTan} />
 
-        </section>
-      )
+        async function generatePreview() {
+          const img = await ToImage();
+          if(img){
+            setImgData(img);
+          }else{
+            console.error("Failed to generate image.");
+          }
+        }
+
+      console.log(props.handleEdit);
+       return (
+         <section className={`slide ${props.cnt === 6 ? "active" : "inactive"}`}>
+           <h2>CV Preview</h2>
+           <button type="button" onClick={generatePreview}>Generate Preview</button>
+           {imgData && <p>Everything looks good?</p>}
+           {imgData && <Prev src={imgData} />}
+           <Buttons name="sixth" handle={props.handleEdit} download={toPDF} />
+
+           <div style={{ position: "absolute", left: "-9999px" }}>
+             <Preview
+               data={props.datahub}
+               pocessor={props.handleInput}
+               titan={props.tiTan}
+             />
+           </div>
+         </section>
+       );
     }
 }
 

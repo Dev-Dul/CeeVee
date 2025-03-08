@@ -31,6 +31,10 @@ function App() {
     setCount(count - 1);
   }
 
+  function handleEdit(){
+    setCount(1);
+  }
+
   const positions = ['first', 'second', 'third', 'fourth', 'fifth', 'preview'];
   
 
@@ -40,7 +44,7 @@ function App() {
       {/* <Slide order="first" /> */}
       <div className="parent">
           {positions.map((pos, index) => {
-            return <Slide order={pos} key={index} bttn={next} back={back} cnt={count} handleChange={handleChange} tiTan={tiTan} datahub={datahub} handleInput={handleInput} capsule={capsule}/>
+            return <Slide order={pos} key={index} bttn={next} back={back} cnt={count} handleChange={handleChange} tiTan={tiTan} datahub={datahub} handleInput={handleInput} capsule={capsule} handleEdit={handleEdit} />
           })}
       </div>
     </div>

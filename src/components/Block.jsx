@@ -91,7 +91,7 @@ function Block({ name, cert, handler, index }) {
         <div className="dates">
           <div className="rng">
             <span>Year Started</span>
-            <Range name={name} startYear={1950} handler={handler} index={index} />
+            <Range name={name} startYear={1940} handler={handler} index={index} />
           </div>
           <div className="rng">
             <span>Year Ended</span>

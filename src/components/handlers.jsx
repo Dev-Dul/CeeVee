@@ -12,7 +12,7 @@ export default function Colossus(){
     });
     
     function handleInput(e) {
-      if (e.target.value !== "") {
+      if(e.target.value !== ""){
         const parent = e.target.dataset.parent;
         console.log(parent);
         const index = Number(e.target.dataset.index);
