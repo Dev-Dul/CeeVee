@@ -26,7 +26,9 @@ function Sk(props) {
   return (
     <div className="skill-wrapper">
       <h3>{props.skill}</h3>
-      <input type="range" name="skill-range" defaultValue={props.level} />
+      <div className="level-wrapper" style={{height: "2px", width: "50%" }}>
+        <div className="lvl" style={{ height: "100%", width: `${props.level}%`, background: "black" }}></div>
+      </div>
     </div>
   );
 }
@@ -152,7 +154,7 @@ export async function ToImage() {
   }
 
   try {
-    const canvas = await html2canvas(element, { useCORS: true });
+    const canvas = await html2canvas(element, { useCORS: true, scale: 3 });
     return canvas.toDataURL("image/png");
   } catch (error) {
     console.error("Error capturing element:", error);
@@ -162,7 +164,7 @@ export async function ToImage() {
 
 
 export function Prev( {src} ){
-  return <img src={src} alt="CV Preview"/>;
+  return <img className="img-preview" src={src} alt="CV Preview"/>;
 }
 
 

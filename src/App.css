@@ -95,9 +95,19 @@ section.home.active{
   text-align: center;
 }
 
+section.home{
+  height: 350px;
+  background: #0d0d0d;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.8);
+}
+
 section.home.inactive{
   opacity: 0;
   display: none;
+}
+
+.btns > button{
+  margin-top: 2rem;
 }
 
 h1{
@@ -114,4 +124,15 @@ section.home > h2{
 
 input, textarea, select{
   font-family: "stan";
+}
+
+input, textarea{
+  color: #000;
+  /* outline-color: #; */
+  background: #f5f5dc;
+  border: 1px solid #333;
+}
+
+textarea{
+  padding: 5px;
 }
