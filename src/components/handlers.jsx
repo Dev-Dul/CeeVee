@@ -29,28 +29,35 @@ export default function Colossus(){
 
     const capsule = (function(){
 
-        function updateEd() {
+        function updateEd(){
           setDatahub((prev) => ({
             ...prev,
             education: [...prev.education, new Education()],
           }));
         }
     
-        function updateEx() {
+        function updateEx(){
           setDatahub((prev) => ({
             ...prev,
             experience: [...prev.experience, new Experience()],
           }));
         }
     
-        function updateSkills() {
+        function updateSkills(){
           setDatahub((prev) => ({
             ...prev,
             skills: [...prev.skills, new Skil()],
           }));
         }
 
-        return { updateEd, updateEx, updateSkills };
+        function erase(innerIndex, outerIndex){
+          setDatahub((prev) => ({
+            ...prev,
+            [outerIndex]: prev[outerIndex].filter((_, index) => index !== innerIndex)
+          }));
+        }
+
+        return { updateEd, updateEx, updateSkills, erase };
     })();
 
 

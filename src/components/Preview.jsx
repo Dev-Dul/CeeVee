@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import { useState, useEffect, useRef } from "react";
-import { toJpeg } from "html-to-image";
 import "../styles/preview.css";
 
 function Ed(props) {
@@ -27,7 +26,7 @@ function Sk(props) {
     <div className="skill-wrapper">
       <h3>{props.skill}</h3>
       <div className="level-wrapper" style={{height: "2px", width: "50%" }}>
-        <div className="lvl" style={{ height: "100%", width: `${props.level}%`, background: "black" }}></div>
+        <div className="lvl" style={{ height: "100%", width: `${props.level}%`, background: "#fff" }}></div>
       </div>
     </div>
   );
@@ -154,7 +153,7 @@ export async function ToImage() {
   }
 
   try {
-    const canvas = await html2canvas(element, { useCORS: true, scale: 3 });
+    const canvas = await html2canvas(element, { useCORS: true, scale: 2 });
     return canvas.toDataURL("image/png");
   } catch (error) {
     console.error("Error capturing element:", error);

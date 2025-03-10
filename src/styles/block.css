@@ -63,3 +63,30 @@
     flex-direction: column;
     color: #f5f5dc;
 }
+
+
+.delete-block{
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    padding: 2px;
+}
+
+.delete-block:hover{
+    background: black;
+}
+
+.delete-block:hover > i{
+    color: #fff;
+}
+
+.delete-block > i{
+    margin-top: 2px;
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-size: 1.15rem;
+}

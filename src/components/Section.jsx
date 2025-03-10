@@ -12,6 +12,7 @@ function Skills(props){
           <span>Skill: </span>
           <input type="text" data-parent="skills" data-index={props.index} name='skill' onBlur={props.handleInput} />
         </label>
+        <button className='delete-skills' onClick={props.onDelete}><i className='fas fa-trash'></i></button>
         <label>
           <span>Proficiency Level: </span>
           <input type="range" min={20} max={100} data-parent='skills' data-index={props.index} name='level' onBlur={props.handleInput} />
@@ -52,6 +53,12 @@ function Slide(props){
   function addBlockTwo(){
     setBlocksTwo(prevBlocks => [...prevBlocks, {id: crypto.randomUUID() }]);
     props.capsule.updateEx();
+  }
+
+  function deleteBlock(setFunc, id, inner, outer){
+    props.capsule.erase(inner, outer);
+    setFunc(prev => prev.filter((field) => field.id !== id));
+
   }
 
   function addSkills(){
@@ -97,7 +104,17 @@ function Slide(props){
           <section className={`slide ${props.cnt === 3 ? 'active' : 'inactive'} `} >
             <h2>Education</h2>
             {blocks.map((block, index) => {
-              return <Block name="School" cert="school" id={block.id} key={block.id} handler={props.handleInput} index={index} />;
+              return (
+                <Block
+                  name="School"
+                  cert="school"
+                  id={block.id}
+                  key={block.id}
+                  handler={props.handleInput}
+                  index={index}
+                  onDelete={() => deleteBlock(setBlocks, block.id, index, "education")}
+                />
+              );
             })}
             <button
               type="button"
@@ -122,6 +139,7 @@ function Slide(props){
                   key={block.id}
                   index={index}
                   handler={props.handleInput}
+                  onDelete={() => deleteBlock(setBlocksTwo, block.id, index, "experience")}
                 />
               );
             })}
@@ -147,7 +165,15 @@ function Slide(props){
           <section className={ `slide ${props.cnt === 5 ? 'active' : 'inactive'} `} >
             <h2>Skills</h2>
             {skills.map((skill, index) => {
-              return <Skills id={skill.id} key={skill.id} handleInput={props.handleInput} index={index} />
+              return (
+                <Skills
+                  id={skill.id}
+                  key={skill.id}
+                  handleInput={props.handleInput}
+                  index={index}
+                  onDelete={() => deleteBlock(setSkills, skill.id, index, "skills")}
+                />
+              );
             })}
             <button type="button" onClick={() => addSkills() }>Add Skill</button>
             <Buttons name='fifth' next={props.bttn} back={props.back} count={props.cnt} tiTan={props.tiTan} datahub={props.datahub} />

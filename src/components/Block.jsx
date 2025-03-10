@@ -23,10 +23,11 @@ function Range({ name, startYear, handler, index }) {
   );
 }
 
-function Block({ name, cert, handler, index }) {
+function Block({ name, cert, handler, index, onDelete }) {
   if(cert !== 'role'){
     return (
       <div className="ed">
+        <button className='delete-block' onClick={onDelete} ><i className='fas fa-trash'></i></button>
         <div className="inputBox">
           <label htmlFor="school">{name}</label>
           <input type="text" name="school" id="school" data-parent="education" data-index={index} onBlur={handler} />
@@ -63,6 +64,7 @@ function Block({ name, cert, handler, index }) {
 
   return (
     <div className="xp">
+        <button className='delete-block' onClick={onDelete} ><i className='fas fa-trash'></i></button>
       <div className="inputBox">
         <label htmlFor="org">{name}</label>
         <input type="text" name="org" data-parent='experience' data-index={index} id="org" onBlur={handler}/>

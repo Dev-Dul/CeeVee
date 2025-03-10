@@ -78,7 +78,7 @@ article{
 }
 
 .lines, .details > div h2{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin: 0 10px;
     margin-bottom: 5px;
     border-bottom: 2px solid;
@@ -110,7 +110,7 @@ h2.right > i{
 
 
 .deets{
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 500;
     margin: 5px 10px;
     text-align: left;
@@ -148,6 +148,7 @@ p.email{
 .yr h2{
     width: 40px;
     display: block;
+    font-size: 1rem;
     margin: 0;
     padding: 0;
     transform: rotate(-90deg) translateX(-25px);
@@ -158,6 +159,7 @@ p.email{
     text-align: left;
     overflow: hidden;
     padding: 5px;
+    font-size: 0.65rem;
 }
 
 .dts > *{
@@ -165,11 +167,11 @@ p.email{
 }
 
 .dts h2{
-    font-size: 0.7rem;
+    font-size: 0.65rem;
 }
 
 .dts p{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .school{
@@ -258,9 +260,13 @@ p.email{
     text-transform: capitalize;
 }
 
-.accom{
+p.accom{
     word-wrap: break-word;
     max-width: 70%;
+}
+
+.work-wrapper h3{
+    font-size: 0.7rem;
 }
 
 .work-wrapper p{
@@ -268,8 +274,9 @@ p.email{
 }
 
 .summ{
+    font-size: 0.68rem;
     margin: 0 10px;
-    max-width: 100%;
+    max-width: 90%;
     word-wrap: break-word;
     text-align: left;
     text-transform: capitalize;
