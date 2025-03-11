@@ -163,7 +163,28 @@ export async function ToImage() {
 
 
 export function Prev( {src} ){
-  return <img className="img-preview" src={src} alt="CV Preview"/>;
+  const [isZoomed, setIsZoomed] = useState(false);
+  const toggleZoom = () => setIsZoomed(prev => !prev);
+  const body = document.body;
+  if(isZoomed){
+    body.style.overflow = "scroll";
+  }else{
+    body.style.overflow = "hidden";
+
+  }
+  
+  return (
+    <div className="prev-wrapper">
+      <img
+        className="img-preview"
+        src={src}
+        alt="CV Preview"
+        onDoubleClick={toggleZoom}
+        style={{ transform: isZoomed ? "scale(3)" : "scale(1)" }}
+      />
+      <div className="tooltip" style={{display: isZoomed ? "none": "block"}}>Click On Image To Zoom In.</div>
+    </div>
+  );
 }
 
 

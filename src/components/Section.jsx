@@ -1,6 +1,5 @@
 import Buttons from './Buttons';
 import Block from './Block';
-// import Preview from './Preview'
 import '../styles/slide.css'
 import { useState } from 'react';
 import Preview, { Prev, ToHtml, ToImage, toPDF } from './Preview'
@@ -190,12 +189,11 @@ function Slide(props){
           }
         }
 
-      console.log(props.handleEdit);
        return (
          <section className={`slide ${props.cnt === 6 ? "active" : "inactive"}`}>
            <h2>CV Preview</h2>
            <button type="button" onClick={generatePreview}>Generate Preview</button>
-           {imgData && <p>Everything looks good?</p>}
+           {imgData && <div className='look'>Does everything look good?</div>}
            {imgData && <Prev src={imgData} />}
            <Buttons name="sixth" handle={props.handleEdit} download={toPDF} />
 
