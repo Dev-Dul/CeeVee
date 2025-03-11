@@ -41,7 +41,6 @@ function App() {
   return (
     <div className="container">
       <Home btn={next}/>
-      {/* <Slide order="first" /> */}
       <div className="parent">
           {positions.map((pos, index) => {
             return <Slide order={pos} key={index} bttn={next} back={back} cnt={count} handleChange={handleChange} tiTan={tiTan} datahub={datahub} handleInput={handleInput} capsule={capsule} handleEdit={handleEdit} />
