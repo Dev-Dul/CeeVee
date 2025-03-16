@@ -166,9 +166,6 @@ label input:focus{
 
 
 @media screen and (max-width: 468px){
-    section.slide{
-        overflow: hidden;
-    }
 
     section.slide > h2{
         width: 80%;
