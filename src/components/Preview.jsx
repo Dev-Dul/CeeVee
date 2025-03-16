@@ -182,7 +182,7 @@ export function Prev( {src} ){
         onDoubleClick={toggleZoom}
         style={{ transform: isZoomed ? "scale(3)" : "scale(1)" }}
       />
-      <div className="tooltip" style={{display: isZoomed ? "none": "block"}}>Click On Image To Zoom In.</div>
+      <div className="tooltip" style={{display: isZoomed ? "none": "block"}}>Double Click On Image To Zoom In.</div>
     </div>
   );
 }

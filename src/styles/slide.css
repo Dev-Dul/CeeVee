@@ -13,7 +13,7 @@ section.slide{
     padding: 20px 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+   justify-content: center;
     flex-direction: column;
     border: 2.5px solid #f5f5dc;
     background: #0d0d0d;
@@ -162,4 +162,51 @@ label input:focus{
 
 .look{
     margin: 20px 0;
+}
+
+
+@media screen and (max-width: 468px){
+    section.slide{
+        overflow: hidden;
+    }
+
+    section.slide > h2{
+        width: 80%;
+        padding: 0 10px;
+    }
+
+    .sLabel{
+        width: 80%;
+    }
+
+    .btns.first{
+        padding: 10px;
+    }
+
+    textarea{
+        max-width: 85%;
+    }
+
+    .buttons{
+        width: 80%;
+    }
+
+    .slide:nth-of-type(3) h2, .slide:nth-of-type(4) h2, .slide:nth-of-type(5) h2{
+        margin-left: 15px;
+        margin-bottom: 0;
+    }
+
+    .skills{
+        flex-direction: column;
+    }
+
+    .skills label:nth-of-type(2){
+        padding: 2px;
+        width: 190px;
+        margin-top: 10px;
+    }
+
+    button.delete-skills{
+        padding: 5px 10px;
+    }
 }

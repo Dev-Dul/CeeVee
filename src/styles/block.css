@@ -90,3 +90,19 @@
     width: 100%;
     font-size: 1.15rem;
 }
+
+@media screen and (max-width: 468px) {
+    .inputBox{
+        width: 75%;
+    }
+
+    .delete-block{
+        top: 15px;
+        right: 10px;
+    }
+
+    .inputBox textarea{
+        width: 100%;
+        max-width: 100%;
+    }
+}

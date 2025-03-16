@@ -72,11 +72,7 @@
   color: #888;
 }
 
-/* section.home{
-  height: 400px;
-  width: 100%;
-  overflow: scroll;
-} */
+
 
 section.home.active{
   opacity: 1;
@@ -135,4 +131,32 @@ input, textarea{
 
 textarea{
   padding: 5px;
+}
+
+
+@media screen and (max-width: 468px) {
+  #root{
+    width: 70vw;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .container{
+    width: 70vw;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  h1{
+    font-size: 1.8rem;
+  }
+
+  section.home > h2{
+    font-size: 0.8rem;
+  }
+
+  .btns:first-of-type{
+    padding: 5px;
+    font-size: 0.8rem;
+  }
 }
