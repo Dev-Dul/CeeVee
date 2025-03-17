@@ -93,12 +93,12 @@
 
 @media screen and (max-width: 468px) {
     .inputBox{
-        width: 75%;
+        width: 70%;
     }
 
     .delete-block{
         top: 15px;
-        right: 10px;
+        right: 20px;
     }
 
     .inputBox textarea{
