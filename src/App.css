@@ -136,8 +136,11 @@ textarea{
 
 @media screen and (max-width: 468px) {
   #root{
+    padding: 0;
     width: 100vw;
     margin: 0 auto;
+    overflow: hidden;
+    display: flex;
   }
 
   .container{

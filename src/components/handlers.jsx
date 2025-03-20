@@ -17,6 +17,8 @@ export default function Colossus(){
         const index = Number(e.target.dataset.index);
         const field = e.target.name;
         const newValue = e.target.value;
+        console.log(field);
+        console.log(newValue);
         setDatahub((prev) => ({
           ...prev,
           [parent]: prev[parent].map((item, i) =>

@@ -14,7 +14,7 @@ function Skills(props){
         <button className='delete-skills' onClick={props.onDelete}><i className='fas fa-trash'></i></button>
         <label>
           <span>Proficiency Level: </span>
-          <input type="range" min={20} max={100} data-parent='skills' data-index={props.index} name='level' onBlur={props.handleInput} />
+          <input type="range" min={0} max={100} data-parent='skills' data-index={props.index} name='level' onChange={props.handleInput} />
         </label>
       </div>
     );

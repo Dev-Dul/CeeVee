@@ -37,7 +37,7 @@ function App() {
 
   const positions = ['first', 'second', 'third', 'fourth', 'fifth', 'preview'];
   
-
+  console.log(datahub);
   return (
     <div className="container">
       <Home btn={next}/>

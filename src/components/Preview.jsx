@@ -172,7 +172,6 @@ export function Prev( {src} ){
     body.style.overflow = "hidden";
 
   }
-  
   return (
     <div className="prev-wrapper">
       <img
@@ -182,7 +181,7 @@ export function Prev( {src} ){
         onDoubleClick={toggleZoom}
         style={{ transform: isZoomed ? "scale(3)" : "scale(1)" }}
       />
-      <div className="tooltip" style={{display: isZoomed ? "none": "block"}}>Double Click On Image To Zoom In.</div>
+      <div className="tooltip" style={{display: isZoomed ? "none": "block", pointerEvents: "none"}}>Double Click On Image To Zoom In.</div>
     </div>
   );
 }
